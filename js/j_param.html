@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+<script>
+    var scope = {param:"global"};
+    var string = "str";
+    function test(obj,str){
+        console.log(obj.param);
+        obj.param2="param2";
+        console.log("obj--"+obj.param2);
+        str = "stringparam";
+        obj = new Object();
+        obj.param2="change";
+    }
+
+    test(scope,string);
+    console.log("new scope--"+scope.param2);
+    console.log("new String--"+string);
+</script>
+</body>
+</html>

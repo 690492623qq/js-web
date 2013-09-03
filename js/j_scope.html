@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+<script>
+    var scope = "global" ;
+
+    function eve(){
+        console.log(scope);
+    }
+
+    function f(){
+        //alert(scope);
+        console.log(scope);
+        var scope = "local";
+        console.log(scope);
+        //alert(age);
+       // eve();
+        var mytest = "mytest";
+    }
+
+
+
+    function test(o){
+        var i = 0;
+        if(typeof o == "object"){
+            var j = o;
+            for (var k=0 ; k< 10; k++){
+                console.log("k1--"+k);
+            }
+            console.log("k2--"+k);
+        }
+        console.log("j--"+j);
+    }
+    f();
+
+    console.log(mytest);
+    var mytest;
+    //test("test");
+
+    function checkScope(){
+        var scope = "local scope";
+        function f(){return scope;}
+        return f;
+    }
+
+    console.log("---"+checkScope()());
+</script>
+</body>
+</html>
